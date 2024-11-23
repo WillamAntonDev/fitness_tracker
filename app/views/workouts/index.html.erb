@@ -1,0 +1,30 @@
+<h1>Workouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exercise Type</th>
+      <th>Duration (minutes)</th>
+      <th>Date</th>
+      <th>Notes</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr>
+        <td><%= workout.exercise_type %></td>
+        <td><%= workout.duration %></td>
+        <td><%= workout.date %></td>
+        <td><%= workout.notes %></td>
+        <td>
+          <%= link_to "Show", workout_path(workout) %> |
+          <%= link_to "Edit", edit_workout_path(workout) %> |
+          <%= link_to "Delete", workout_path(workout), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New Workout", new_workout_path %>

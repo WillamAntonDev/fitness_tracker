@@ -1,0 +1,14 @@
+<h1>New Workout</h1>
+<%= form_with model: @workout, local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :duration %>
+    <%= form.number_field :duration %>
+  </div>
+  <div>
+    <%= form.submit "Create Workout" %>
+  </div>
+<% end %>
