@@ -1,2 +1,7 @@
-@use "bootstrap/scss/bootstrap" as *;
+@use "bootstrap/scss/bootstrap";
 @use "bootstrap-icons/font/bootstrap-icons";
+
+@use "partials/variables";
+@use "partials/mixins";
+@use "partials/layout";
+@use "partials/workouts";

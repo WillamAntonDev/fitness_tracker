@@ -14,7 +14,7 @@ class WorkoutsController < ApplicationController
   def create
     @workout = Workout.new(workout_params)
     if @workout.save
-      redirect_to @workout, notice: 'Workout was successfully created.'
+      redirect_to @workout, notice: "Workout was successfully created."
     else
       render :new
     end
@@ -27,7 +27,7 @@ class WorkoutsController < ApplicationController
   def update
     @workout = Workout.find(params[:id])
     if @workout.update(workout_params)
-      redirect_to @workout, notice: 'Workout was successfully updated.'
+      redirect_to @workout, notice: "Workout was successfully updated."
     else
       render :edit
     end
@@ -35,13 +35,17 @@ class WorkoutsController < ApplicationController
 
   def destroy
     @workout = Workout.find(params[:id])
-    @workout.destroy
-    redirect_to workouts_path, notice: 'Workout was successfully deleted.'
+    if @workout.destroy
+      redirect_to workouts_path, notice: "Workout was successfully deleted."
+    else
+      redirect_to workouts_path, alert: "Failed to delete the workout."
+    end
   end
+
 
   private
 
   def workout_params
-    params.require(:workout).permit(:exercise_type, :duration, :date, :notes)
+    params.require(:workout).permit(:name, :date, :exercise_type, :duration, :notes)
   end
 end

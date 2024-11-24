@@ -1,6 +1,8 @@
 <h1>Workouts</h1>
 
-<table>
+<%= link_to "New Workout", new_workout_path, class: "btn btn-success mb-3" %>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Exercise Type</th>
@@ -18,13 +20,11 @@
         <td><%= workout.date %></td>
         <td><%= workout.notes %></td>
         <td>
-          <%= link_to "Show", workout_path(workout) %> |
-          <%= link_to "Edit", edit_workout_path(workout) %> |
-          <%= link_to "Delete", workout_path(workout), method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Show", workout_path(workout), class: "btn btn-primary btn-sm" %>
+          <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-secondary btn-sm" %>
+          <%= link_to "Delete", workout_path(workout), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to "New Workout", new_workout_path %>

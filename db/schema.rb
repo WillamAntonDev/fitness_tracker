@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_22_212033) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_23_201403) do
   create_table "workouts", force: :cascade do |t|
     t.string "exercise_type"
     t.integer "duration"
@@ -18,5 +18,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_22_212033) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 end
