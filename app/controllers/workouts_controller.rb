@@ -1,6 +1,10 @@
 class WorkoutsController < ApplicationController
   def index
-    @workouts = Workout.all
+    @workouts = if params[:category]
+                  Workout.where(category: params[:category])
+    else
+                  Workout.all
+    end
   end
 
   def show
@@ -46,6 +50,6 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:name, :date, :exercise_type, :duration, :notes)
+    params.require(:workout).permit(:name, :date, :exercise_type, :duration, :notes, :category)
   end
 end

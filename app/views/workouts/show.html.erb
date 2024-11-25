@@ -1,8 +1,8 @@
 <h1>Workout Details</h1>
-
-<p>Exercise Type: <%= @workout.exercise_type %></p>
-<p>Duration: <%= @workout.duration %> minutes</p>
-<p>Date: <%= @workout.date %></p>
-<p>Notes: <%= @workout.notes %></p>
-
-<%= link_to "Back to Workouts", workouts_path %>
+<p><strong>Category:</strong> <%= @workout.category %></p>
+<p><strong>Exercise Type:</strong> <%= @workout.exercise_type %></p>
+<p><strong>Duration:</strong> <%= @workout.duration %> minutes</p>
+<p><strong>Date:</strong> <%= @workout.date %></p>
+<p><strong>Notes:</strong> <%= @workout.notes %></p>
+<p><strong>Instructions:</strong> <%= @workout.instructions %></p>
+<%= link_to "Back to Workouts", workouts_path, class: "btn btn-secondary" %>

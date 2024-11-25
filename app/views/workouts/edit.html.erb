@@ -25,4 +25,16 @@
     <%= form.submit "Update Workout", class: "btn btn-primary" %>
     <%= link_to "Cancel", workouts_path, class: "btn btn-secondary" %>
   </div>
+
+ <%= form.label :category, class: "form-label" %>
+<%= form.select :category, options_for_select(['Cycling', 'Running', 'Strength Training', 'Yoga', 'Other'], @workout.category), { prompt: "Select Category" }, class: "form-control" %>
+
+
+<div class="mb-3">
+  <%= form.label :instructions, "Instructions", class: "form-label" %>
+  <%= form.text_area :instructions, class: "form-control", rows: 4 %>
+</div>
+
+
+ 
 <% end %>

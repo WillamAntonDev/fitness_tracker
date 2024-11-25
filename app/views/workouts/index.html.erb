@@ -1,28 +1,42 @@
 <h1>Workouts</h1>
 
-<%= link_to "New Workout", new_workout_path, class: "btn btn-success mb-3" %>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <%= link_to "New Workout", new_workout_path, class: "btn btn-success" %>
+
+  <div class="btn-group">
+    <%= link_to "All", workouts_path, class: "btn btn-outline-secondary" %>
+    <%= link_to "Cycling", workouts_path(category: "Cycling"), class: "btn btn-outline-secondary" %>
+    <%= link_to "Strength Training", workouts_path(category: "Strength Training"), class: "btn btn-outline-secondary" %>
+    <%= link_to "Running", workouts_path(category: "Running"), class: "btn btn-outline-secondary" %>
+    <%= link_to "Other", workouts_path(category: "Other"), class: "btn btn-outline-secondary" %>
+  </div>
+</div>
 
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Category</th>
       <th>Exercise Type</th>
       <th>Duration (minutes)</th>
       <th>Date</th>
       <th>Notes</th>
+      <th>Instructions</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @workouts.each do |workout| %>
       <tr>
+        <td><%= workout.category %></td>
         <td><%= workout.exercise_type %></td>
         <td><%= workout.duration %></td>
-        <td><%= workout.date %></td>
-        <td><%= workout.notes %></td>
+        <td><%= workout.date.strftime("%B %d, %Y") if workout.date %></td>
+        <td><%= workout.notes.presence || "No notes available" %></td>
+        <td><%= workout.instructions.presence || "No instructions provided" %></td>
         <td>
           <%= link_to "Show", workout_path(workout), class: "btn btn-primary btn-sm" %>
           <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-secondary btn-sm" %>
-          <%= link_to "Delete", workout_path(workout), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+          <%= link_to "Delete", workout_path(workout), method: :delete, data: { confirm: "Are you sure you want to delete this workout?" }, class: "btn btn-danger btn-sm" %>
         </td>
       </tr>
     <% end %>

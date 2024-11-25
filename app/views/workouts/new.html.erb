@@ -21,6 +21,16 @@
     <%= form.text_area :notes, class: "form-control", rows: 3 %>
   </div>
 
+  <%= form.label :category, class: "form-label" %>
+<%= form.select :category, options_for_select(['Cycling', 'Running', 'Strength Training', 'Yoga', 'Other'], @workout.category), { prompt: "Select Category" }, class: "form-control" %>
+
+
+  <div class="mb-3">
+  <%= form.label :instructions, "Instructions", class: "form-label" %>
+  <%= form.text_area :instructions, class: "form-control", rows: 4 %>
+</div>
+
+
   <%= form.submit "Create Workout", class: "btn btn-success" %>
 <% end %>
 
