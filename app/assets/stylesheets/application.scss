@@ -1,7 +1,11 @@
+// Import Bootstrap first using @use
 @use "bootstrap/scss/bootstrap";
-@use "bootstrap-icons/font/bootstrap-icons";
 
+// Import custom partials
 @use "partials/variables";
 @use "partials/mixins";
 @use "partials/layout";
 @use "partials/workouts";
+
+// Import Bootstrap Icons CSS
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
