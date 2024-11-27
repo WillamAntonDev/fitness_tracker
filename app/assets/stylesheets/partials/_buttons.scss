@@ -1,0 +1,25 @@
+@use "variables" as vars;
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 5px; /* Adjust as needed for spacing */
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  text-align: center;
+  padding: 8px 12px; /* Adjust padding for balance */
+  font-size: 14px; /* Uniform font size */
+}
+
+.btn-sm {
+  font-size: 12px; /* Smaller font size for compact buttons */
+  padding: 5px 10px;
+}
+

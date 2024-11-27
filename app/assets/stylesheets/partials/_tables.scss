@@ -1,0 +1,19 @@
+@use "sass:color";
+@use "variables" as vars;
+
+.table th,
+.table td {
+  text-align: center; /* Center-align table content */
+  vertical-align: middle;
+  padding: 8px; /* Consistent spacing */
+}
+
+.table th {
+  background-color: #f8f9fa; /* Light header background */
+  font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternating row colors */
+}
+

@@ -1,11 +1,19 @@
-// Import Bootstrap first using @use
+// Import Bootstrap and icons
 @use "bootstrap/scss/bootstrap";
+@use "bootstrap-icons/font/bootstrap-icons";
 
-// Import custom partials
-@use "partials/variables";
+// Import partials
+@use "partials/variables" as vars;
 @use "partials/mixins";
-@use "partials/layout";
+@use "partials/layout"; // Layout includes footer styles
 @use "partials/workouts";
+@use "partials/tables";
+@use "partials/buttons";
+@use "partials/responsive";
 
-// Import Bootstrap Icons CSS
-@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+// Global styles
+body {
+  background-color: vars.$background-color;
+  color: vars.$text-color;
+  font-family: vars.$font-family;
+}

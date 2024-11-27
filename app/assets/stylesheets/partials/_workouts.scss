@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "variables" as vars;
+
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -48,4 +52,15 @@ tr:hover {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px; /* Add spacing above */
+  padding: 10px;    /* Add padding inside */
+  font-size: 0.9rem;
+  color: vars.$secondary-color;
+  background-color: vars.$background-color; /* Optional: Add a subtle background color */
+  border-top: 1px solid color.scale(vars.$text-color, $lightness: 30%);
+
 }

@@ -1,16 +1,17 @@
-<h1>Workouts</h1>
-
 <div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Workouts</h2>
   <%= link_to "New Workout", new_workout_path, class: "btn btn-success" %>
-
-  <div class="btn-group">
-    <%= link_to "All", workouts_path, class: "btn btn-outline-secondary" %>
-    <%= link_to "Cycling", workouts_path(category: "Cycling"), class: "btn btn-outline-secondary" %>
-    <%= link_to "Strength Training", workouts_path(category: "Strength Training"), class: "btn btn-outline-secondary" %>
-    <%= link_to "Running", workouts_path(category: "Running"), class: "btn btn-outline-secondary" %>
-    <%= link_to "Other", workouts_path(category: "Other"), class: "btn btn-outline-secondary" %>
-  </div>
 </div>
+
+<div class="btn-group d-flex mb-3" role="group" aria-label="Filter Workouts">
+  <%= link_to "All", workouts_path, class: "btn btn-outline-primary flex-grow-1" %>
+  <%= link_to "Cycling", workouts_path(category: "Cycling"), class: "btn btn-outline-primary flex-grow-1" %>
+  <%= link_to "Strength Training", workouts_path(category: "Strength Training"), class: "btn btn-outline-primary flex-grow-1" %>
+  <%= link_to "Running", workouts_path(category: "Running"), class: "btn btn-outline-primary flex-grow-1" %>
+  <%= link_to "Other", workouts_path(category: "Other"), class: "btn btn-outline-primary flex-grow-1" %>
+</div>
+
+
 
 <table class="table table-striped">
   <thead>
@@ -34,10 +35,13 @@
         <td><%= workout.notes.presence || "No notes available" %></td>
         <td><%= workout.instructions.presence || "No instructions provided" %></td>
         <td>
-          <%= link_to "Show", workout_path(workout), class: "btn btn-primary btn-sm" %>
-          <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-secondary btn-sm" %>
-          <%= link_to "Delete", workout_path(workout), method: :delete, data: { confirm: "Are you sure you want to delete this workout?" }, class: "btn btn-danger btn-sm" %>
-        </td>
+  <div class="d-flex justify-content-center gap-2">
+    <%= link_to "Show", workout_path(workout), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-secondary btn-sm" %>
+    <%= link_to "Delete", workout_path(workout), method: :delete, data: { confirm: "Are you sure you want to delete this workout?" }, class: "btn btn-danger btn-sm" %>
+  </div>
+</td>
+
       </tr>
     <% end %>
   </tbody>

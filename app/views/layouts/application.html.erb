@@ -1,22 +1,34 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title><%= content_for(:title) || "Fitness Tracker" %></title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
-</head>
-<body>
-  <div class="container">
-    <% if flash[:notice] %>
-      <p class="alert alert-success"><%= flash[:notice] %></p>
-    <% elsif flash[:alert] %>
-      <p class="alert alert-danger"><%= flash[:alert] %></p>
-    <% end %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application", defer: true %>
+  </head>
+  <body>
+    <header class="bg-dark text-light py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <h1 class="h4 m-0">Fitness Tracker</h1>
+        <!-- Optional navigation links -->
+        <nav>
+          <%= link_to "Home", root_path, class: "text-light me-3" %>
+          <%= link_to "Workouts", workouts_path, class: "text-light" %>
+        </nav>
+      </div>
+    </header>
 
-    <%= yield %>
-  </div>
-</body>
+    <main class="container my-4">
+      <%= yield %> <!-- This renders the content of the view -->
+    </main>
 
+    <footer class="bg-dark text-light py-3">
+      <div class="container text-center">
+        <p class="m-0">© 2024 Fitness Tracker</p>
+      </div>
+    </footer>
+  </body>
 </html>

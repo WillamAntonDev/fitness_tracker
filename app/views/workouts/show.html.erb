@@ -3,6 +3,6 @@
 <p><strong>Exercise Type:</strong> <%= @workout.exercise_type %></p>
 <p><strong>Duration:</strong> <%= @workout.duration %> minutes</p>
 <p><strong>Date:</strong> <%= @workout.date %></p>
-<p><strong>Notes:</strong> <%= @workout.notes %></p>
-<p><strong>Instructions:</strong> <%= @workout.instructions %></p>
+<p><strong>Notes:</strong> <%= @workout.notes.presence || "No notes available" %></p>
+<p><strong>Instructions:</strong> <%= @workout.instructions.presence || "No instructions provided" %></p>
 <%= link_to "Back to Workouts", workouts_path, class: "btn btn-secondary" %>
